@@ -1,0 +1,1550 @@
+<!-- <app-widgets-dropdown></app-widgets-dropdown>
+<c-card class="mb-4">
+  <c-card-body>
+    <c-row>
+      <c-col sm="5">
+        <h4 class="card-title mb-0" id="traffic">Traffic</h4>
+        <div class="small text-medium-emphasis">January - December 2021</div>
+      </c-col>
+      <c-col class="d-none d-md-block" sm="7">
+        <button cButton class="float-end" color="primary">
+          <svg cIcon name="cilCloudDownload"></svg>
+        </button>
+        <form [formGroup]="trafficRadioGroup">
+          <c-button-group class="float-end me-3" role="group">
+            <input
+              class="btn-check"
+              formControlName="trafficRadio"
+              type="radio"
+              value="Day"
+            />
+            <label
+              (click)="setTrafficPeriod('Day')"
+              cButton
+              cFormCheckLabel
+              color="secondary"
+              variant="outline"
+            >Day</label>
+
+            <input
+              class="btn-check"
+              formControlName="trafficRadio"
+              type="radio"
+              value="Month"
+            />
+            <label
+              (click)="setTrafficPeriod('Month')"
+              cButton
+              cFormCheckLabel
+              color="secondary"
+              variant="outline"
+            >Month</label>
+
+            <input
+              class="btn-check"
+              formControlName="trafficRadio"
+              type="radio"
+              value="Year"
+            />
+            <label
+              (click)="setTrafficPeriod('Year')"
+              cButton
+              cFormCheckLabel
+              color="secondary"
+              variant="outline"
+            >Year</label>
+          </c-button-group>
+        </form>
+      </c-col>
+    </c-row>
+    <c-chart
+      [data]="mainChart.data"
+      [height]="300"
+      [ngStyle]="{ 'marginTop.px': 40 }"
+      [options]="mainChart.options"
+      [type]="mainChart.type"
+    >
+      Main chart
+    </c-chart>
+  </c-card-body>
+  <c-card-footer>
+    <c-row class="text-center" [md]="5" [xs]="1">
+      <c-col class="mb-sm-2 mb-0">
+        <div class="text-medium-emphasis">Visits</div>
+        <strong>29.703 Users (40%)</strong>
+        <c-progress class="mt-2" thin>
+          <c-progress-bar color="success" value="40"></c-progress-bar>
+        </c-progress>
+      </c-col>
+      <c-col class="mb-sm-2 mb-0">
+        <div class="text-medium-emphasis">Unique</div>
+        <strong>24.093 Users (20%)</strong>
+        <c-progress class="mt-2" thin>
+          <c-progress-bar color="info" value="20"></c-progress-bar>
+        </c-progress>
+      </c-col>
+      <c-col class="mb-sm-2 mb-0">
+        <div class="text-medium-emphasis">Page views</div>
+        <strong>78.706 Views (60%)</strong>
+        <c-progress class="mt-2" thin>
+          <c-progress-bar color="warning" value="60"></c-progress-bar>
+        </c-progress>
+      </c-col>
+      <c-col class="mb-sm-2 mb-0">
+        <div class="text-medium-emphasis">New Users</div>
+        <strong>22.123 Users (80%)</strong>
+        <c-progress class="mt-2" thin>
+          <c-progress-bar color="danger" value="80"></c-progress-bar>
+        </c-progress>
+      </c-col>
+      <c-col class="mb-sm-2 mb-0">
+        <div class="text-medium-emphasis">Bounce Rate</div>
+        <strong>Average Rate (40.15%)</strong>
+        <c-progress class="mt-2" thin>
+          <c-progress-bar value="40"></c-progress-bar>
+        </c-progress>
+      </c-col>
+    </c-row>
+  </c-card-footer>
+</c-card>
+
+<app-widgets-brand [withCharts]="true"></app-widgets-brand>
+
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Traffic {{ "&" }} Sales</c-card-header>
+      <c-card-body>
+        <c-row>
+          <c-col md="6" xl="6" xs="12">
+            <c-row>
+              <c-col sm="6">
+                <div
+                  class="border-start border-start-4 border-start-info py-1 px-3 mb-3"
+                >
+                  <div class="text-medium-emphasis small">New Clients</div>
+                  <div class="fs-5 fw-semibold">9,123</div>
+                </div>
+              </c-col>
+              <c-col sm="6">
+                <div
+                  class="border-start border-start-4 border-start-danger py-1 px-3 mb-3"
+                >
+                  <div class="text-medium-emphasis small">
+                    Recurring Clients
+                  </div>
+                  <div class="fs-5 fw-semibold">22,643</div>
+                </div>
+              </c-col>
+            </c-row>
+
+            <hr class="mt-0" />
+
+            <div class="progress-group mb-4">
+              <div class="progress-group-prepend">
+                <span class="text-medium-emphasis small">Monday</span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="info" value="34"></c-progress-bar>
+                </c-progress>
+                <c-progress thin>
+                  <c-progress-bar color="danger" value="78"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group mb-4">
+              <div class="progress-group-prepend">
+                <span class="text-medium-emphasis small">Tuesday</span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="info" value="56"></c-progress-bar>
+                </c-progress>
+                <c-progress thin>
+                  <c-progress-bar color="danger" value="94"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group mb-4">
+              <div class="progress-group-prepend">
+                <span class="text-medium-emphasis small">Wednesday</span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="info" value="12"></c-progress-bar>
+                </c-progress>
+                <c-progress thin>
+                  <c-progress-bar color="danger" value="67"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group mb-4">
+              <div class="progress-group-prepend">
+                <span class="text-medium-emphasis small">Thursday</span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="info" value="43"></c-progress-bar>
+                </c-progress>
+                <c-progress thin>
+                  <c-progress-bar color="danger" value="91"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group mb-4">
+              <div class="progress-group-prepend">
+                <span class="text-medium-emphasis small">Friday</span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="info" value="22"></c-progress-bar>
+                </c-progress>
+                <c-progress thin>
+                  <c-progress-bar color="danger" value="73"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group mb-4">
+              <div class="progress-group-prepend">
+                <span class="text-medium-emphasis small">Saturday</span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="info" value="53"></c-progress-bar>
+                </c-progress>
+                <c-progress thin>
+                  <c-progress-bar color="danger" value="82"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group mb-4">
+              <div class="progress-group-prepend">
+                <span class="text-medium-emphasis small">Sunday</span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="info" value="9"></c-progress-bar>
+                </c-progress>
+                <c-progress thin>
+                  <c-progress-bar color="danger" value="69"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="legend text-center" ngPreserveWhitespaces>
+              <small>
+                <sup>
+                  <span class="badge badge-pill badge-sm bg-info">&nbsp;</span>
+                </sup>
+                <span>New clients</span>
+                &nbsp;&nbsp;
+                <sup>
+                  <span class="badge badge-pill badge-sm bg-danger">&nbsp;</span>
+                </sup>
+                <span>Recurring clients</span>
+              </small>
+            </div>
+          </c-col>
+
+          <c-col md="6" xl="6" xs="12">
+            <c-row>
+              <c-col sm="6">
+                <div class="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
+                  <div class="text-medium-emphasis small">Page views</div>
+                  <div class="fs-5 fw-semibold">78,623</div>
+                </div>
+              </c-col>
+              <c-col sm="6">
+                <div class="border-start border-start-4 border-start-success py-1 px-3 mb-3">
+                  <div class="text-medium-emphasis small">Organic</div>
+                  <div class="fs-5 fw-semibold">49,123</div>
+                </div>
+              </c-col>
+            </c-row>
+
+            <hr class="mt-0" />
+
+            <div class="progress-group mb-4">
+              <div class="progress-group-header">
+                <svg cIcon class="icon icon-lg me-2" name="cilUser"></svg>
+                <span>Male</span>
+                <span class="ms-auto font-semibold">43%</span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="warning" value="43"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group mb-5">
+              <div class="progress-group-header">
+                <svg cIcon class="icon icon-lg me-2" name="cilUserFemale"></svg>
+                <span>Female</span>
+                <span class="ms-auto font-semibold">37%</span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="warning" value="37"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+
+            <div class="progress-group">
+              <div class="progress-group-header">
+                <svg cIcon class="icon icon-lg me-2" name="cibGoogle"></svg>
+                <span>Organic Search</span>
+                <span class="ms-auto font-semibold">
+                  191,235 <span class="text-medium-emphasis small">(56%)</span>
+                </span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="success" value="56"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group">
+              <div class="progress-group-header">
+                <svg cIcon class="icon icon-lg me-2" name="cibFacebook"></svg>
+                <span>Facebook</span>
+                <span class="ms-auto font-semibold">
+                  51,223 <span class="text-medium-emphasis small">(15%)</span>
+                </span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="success" value="15"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group">
+              <div class="progress-group-header">
+                <svg cIcon class="icon icon-lg me-2" name="cibTwitter"></svg>
+                <span>Twitter</span>
+                <span class="ms-auto font-semibold">
+                  37,564 <span class="text-medium-emphasis small">(11%)</span>
+                </span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="success" value="11"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="progress-group">
+              <div class="progress-group-header">
+                <svg cIcon class="icon icon-lg me-2" name="cibLinkedin"></svg>
+                <span>LinkedIn</span>
+                <span class="ms-auto font-semibold">
+                  27,319 <span class="text-medium-emphasis small">(8%)</span>
+                </span>
+              </div>
+              <div class="progress-group-bars">
+                <c-progress thin>
+                  <c-progress-bar color="success" value="8"></c-progress-bar>
+                </c-progress>
+              </div>
+            </div>
+            <div class="divider d-flex justify-content-center">
+              <button
+                cButton
+                class="text-muted btn-link"
+                color="transparent"
+                size="sm"
+                type="button"
+              >
+                <svg cIcon name="cil-options"></svg>
+              </button>
+            </div>
+          </c-col>
+        </c-row>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Users</c-card-header>
+      <c-card-body>
+        <table
+          [hover]="true"
+          [responsive]="true"
+          [striped]="true"
+          align="middle"
+          cTable
+          class="mb-0 border"
+        >
+          <thead cTableColor="light">
+            <tr>
+              <th class="text-center">
+                <svg cIcon name="cilPeople"></svg>
+              </th>
+              <th>User</th>
+              <th class="text-center">Country</th>
+              <th>Usage</th>
+              <th class="text-center">Payment Method</th>
+              <th>Activity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; index as i">
+              <td class="text-center">
+                <c-avatar
+                  size="md"
+                  src="{{ user.avatar }}"
+                  status="{{ user.status }}"
+                ></c-avatar>
+              </td>
+              <td>
+                <div>{{ user.name }}</div>
+                <div class="small text-medium-emphasis text-nowrap">
+                  <span>
+                    {{ user.state }} | Registered: {{ user.registered }}
+                  </span>
+                </div>
+              </td>
+              <td class="text-center">
+                <svg
+                  cIcon
+                  id="{{ user.country + user.name }}"
+                  name="cif{{ user.country }}"
+                  size="xl"
+                  title="{{ user.country }}"
+                ></svg>
+              </td>
+              <td>
+                <div class="d-flex justify-content-between">
+                  <div class="float-start">
+                    <strong>{{ user.usage }}%</strong>
+                  </div>
+                  <div class="float-end ms-1 text-nowrap">
+                    <small class="text-medium-emphasis">
+                      {{ user.period }}
+                    </small>
+                  </div>
+                </div>
+                <c-progress thin>
+                  <c-progress-bar
+                    [value]="user.usage"
+                    color="{{ user.color }}"
+                  ></c-progress-bar>
+                </c-progress>
+              </td>
+              <td class="text-center">
+                <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg>
+              </td>
+              <td>
+                <div class="small text-medium-emphasis">Last login</div>
+                <div class="fw-semibold text-nowrap">{{ user.activity }}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row> -->
+
+<section>
+  <div class="row">
+
+
+    
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row justify-cont-center align-items-center mt-2 mb-3">
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <div
+                class="btn-group float-end"
+                role="group"
+                aria-label="Basic radio toggle button group"
+              >
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnradio"
+                  id="btnradio1"
+                  autocomplete="off"
+                  checked
+                />
+                <label class="btn btn-outline-primary" for="btnradio1"
+                  >This Year</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnradio"
+                  id="btnradio2"
+                  autocomplete="off"
+                />
+                <label class="btn btn-outline-primary" for="btnradio2"
+                  >This Month</label
+                >
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  name="btnradio"
+                  id="btnradio3"
+                  autocomplete="off"
+                />
+                <label class="btn btn-outline-primary" for="btnradio3"
+                  >This Week</label
+                >
+              </div>
+            </div>
+            <div
+              class="col-6 col-xs-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 my-2 my-sm-2 my-md-2"
+            >
+              <div class="dashboard-items-box box-1 card-shadow">
+                <img
+                  class="counter-images"
+                  src="./../../../assets/dashboard-icons/items.png"
+                  alt=""
+                />
+                <h6 class="name">Items</h6>
+                <h3 class="count">60</h3>
+                <div class="subtext">0 Newly Added</div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-xs-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 my-2 my-sm-2 my-md-2"
+            >
+              <div class="dashboard-orders-box box-1 card-shadow">
+                <img
+                  class="counter-images"
+                  src="./../../../assets/dashboard-icons/orders.png"
+                  alt=""
+                />
+                <h6 class="name">Orders</h6>
+                <h3 class="count">60</h3>
+                <div class="subtext">0 Newly Added</div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-xs-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 my-2 my-sm-2 my-md-2"
+            >
+              <div class="dashboard-stores-box box-1 card-shadow">
+                <img
+                  class="counter-images"
+                  src="./../../../assets/dashboard-icons/stores.png"
+                  alt=""
+                />
+                <h6 class="name">Stores</h6>
+                <h3 class="count">100</h3>
+                <div class="subtext">0 Newly Added</div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-xs-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 my-2 my-sm-2 my-md-2"
+            >
+              <div class="dashboard-customers-box box-1 card-shadow">
+                <img
+                  class="counter-images"
+                  src="./../../../assets/dashboard-icons/customers.png"
+                  alt=""
+                />
+                <h6 class="name">Customers</h6>
+                <h3 class="count">60</h3>
+                <div class="subtext">0 Newly Added</div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center align-items-center mt-2 mb-2">
+            <div
+              class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="card-subtitle">
+                    <img
+                      class="order-icons"
+                      src="./../../../assets/dashboard-icons/unassigned-order.png"
+                      alt=""
+                    />
+                    <span> Unassigned Orders</span>
+                  </h6>
+                  <span class="card-title"> 19 </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="card-subtitle">
+                    <img
+                      class="order-icons"
+                      src="./../../../assets/dashboard-icons/order.png"
+                      alt=""
+                    />
+                    <span> Accepted By Delivery Man</span>
+                  </h6>
+                  <span class="card-title"> 19 </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="card-subtitle">
+                    <img
+                      class="order-icons"
+                      src="./../../../assets/dashboard-icons/packaging.png"
+                      alt=""
+                    />
+                    <span> Packaging</span>
+                  </h6>
+                  <span class="card-title"> 19 </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="card-subtitle">
+                    <img
+                      class="order-icons"
+                      src="./../../../assets/dashboard-icons/out_for_delivery.png"
+                      alt=""
+                    />
+                    <span> Out For Delivery</span>
+                  </h6>
+                  <span class="card-title"> 19 </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="card-subtitle">
+                    <img
+                      class="order-icons"
+                      src="./../../../assets/dashboard-icons/delivered.png"
+                      alt=""
+                    />
+                    <span> Delivered</span>
+                  </h6>
+                  <span class="card-title"> 19 </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="card-subtitle">
+                    <img
+                      class="order-icons"
+                      src="./../../../assets/dashboard-icons/cancelled.png"
+                      alt=""
+                    />
+                    <span> Canceled</span>
+                  </h6>
+                  <span class="card-title"> 19 </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="card-subtitle">
+                    <img
+                      class="order-icons"
+                      src="./../../../assets/dashboard-icons/refund.png"
+                      alt=""
+                    />
+                    <span> Refunded</span>
+                  </h6>
+                  <span class="card-title"> 19 </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h6 class="card-subtitle">
+                    <img
+                      class="order-icons"
+                      src="./../../../assets/dashboard-icons/payment-failed.png"
+                      alt=""
+                    />
+                    <span> Payment Failed</span>
+                  </h6>
+                  <span class="card-title"> 19 </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-4 my-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="card-subtitle">
+              <span>Top Selling Stores</span>
+            </h6>
+            <a class="go-to-view-all"> View All </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row justify-content-center align-items-center">
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="order-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="order-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="order-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="order-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="order-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-4 my-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="card-subtitle">
+              <span>Most Rated Stores</span>
+            </h6>
+            <a class="go-to-view-all"> View All </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row justify-content-center align-items-center">
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success"
+                    >Orders : 19</span
+                  >
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/woman.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/woman.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-4 my-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="card-subtitle">
+              <span>Top Selling Items</span>
+            </h6>
+            <a class="go-to-view-all"> View All </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row justify-content-center align-items-center">
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span
+                    class="alert alert-info alert-custom alert-custom counter-black"
+                    >Orders : 19</span
+                  >
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-black">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/woman.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-black">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/woman.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-black">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-black">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-4 my-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="card-subtitle">
+              <span>Top Rated Items</span>
+            </h6>
+            <a class="go-to-view-all"> View All </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row justify-content-center align-items-center">
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="top-items-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="top-items">
+                      <span class="name"> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="top-items-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="top-items">
+                      <span class="name"> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="top-items-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="top-items">
+                      <span class="name"> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="top-items-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="top-items">
+                      <span class="name"> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container">
+                      <img
+                        class="top-items-icons"
+                        src="./../../../assets/dashboard-icons/unassigned-order.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="top-items">
+                      <span class="name"> orange (m)</span>
+                    </h6>
+                  </span>
+                  <span class="counter-red">
+                    19
+                    <img
+                      class="heart-size"
+                      src="./../../../assets/dashboard-icons/heart.png"
+                      alt=""
+                  /></span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-4 my-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="card-subtitle">
+              <span>Top Deliveryman</span>
+            </h6>
+            <a class="go-to-view-all"> View All </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row justify-content-center align-items-center">
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success"
+                    >Orders : 19</span
+                  >
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/woman.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/woman.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-success">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-4 my-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="card-subtitle">
+              <span>Top Customers</span>
+            </h6>
+            <a class="go-to-view-all"> View All </a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row justify-content-center align-items-center">
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span
+                    class="alert alert-info alert-custom alert-custom counter-black"
+                    >Orders : 19</span
+                  >
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-black">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/woman.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-black">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/woman.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-black">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-12 col-xs-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+            >
+              <a class="order--card h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="d-flex justify-content-start align-items-center">
+                    <span class="image-container-user">
+                      <img
+                        class="user-icons"
+                        src="./../../../assets/dashboard-icons/man.png"
+                        alt=""
+                      />
+                    </span>
+                    <h6 class="card-subtitle">
+                      <span class="deliveryman-name"> User Name </span><br />
+                      <span class="deliveryman-contact"> 91-98765-54321</span>
+                    </h6>
+                  </span>
+                  <span class="alert alert-info alert-custom counter-black">
+                    Orders : 19
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
